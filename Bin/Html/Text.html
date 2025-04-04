@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>右键菜单</title>
+    <!-- 阿里图标 -->
+    <!-- <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/c/font_4453355_yizetjv4jeo.css" /> -->
+    <style>
+        html,
+        body {
+            margin: 0;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        #test-area {
+            border: 1px solid black;
+            width: 100%;
+            height: 100vh;
+            background-color: #333333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu {
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            border: 1px solid gray;
+            background-color: #333333;
+            color: white;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .menu>ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu>ul>li {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .menu>ul>li:hover {
+            background-color: #1A6CE7;
+        }
+
+        hr {
+            margin: 0;
+            border: 1px solid gray;
+        }
+
+        .submenu {
+            padding: 0;
+            left: 200px;
+            margin-top: -32px;
+            position: absolute;
+            display: none;
+        }
+
+        .link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .iconfont {
+            font-size: 14px;
+            padding-right: 5px;
+        }
+
+        .tip {
+            font-size: 40px;
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 右键点击测试区域 -->
+    <div id="test-area">
+        <div class="tip">
+            点击右键查看效果
+        </div>
+    </div>
+    <!-- 右键菜单1 -->
+    <div class="menu" id="right-menu" hidden>
+        <ul>
+            <li>查看详情</li>
+            <li>打开表字段提示</li>
+            <hr />
+            <li>在SQL编辑器查看数据</li>
+            <li>生成测试数据</li>
+            <li>导出数据</li>
+            <li>导入数据</li>
+            <li>数据迁移</li>
+            <li>表结构对比</li>
+            <hr />
+            <li id="generate-sql">
+                <div class="link">
+                    <span>生成SQL</span>
+                    <span>></span>
+                </div>
+                <div class="submenu menu" id="right-menu2">
+                    <ul>
+                        <li>查找</li>
+                        <li>插入</li>
+                        <li>更新</li>
+                        <li>删除</li>
+                        <li>DDL</li>
+                    </ul>
+                </div>
+            </li>
+            <li id="copy">
+                <div class="link">
+                    <span>复制</span>
+                    <span>></span>
+                </div>
+                <div class="submenu menu" id="right-menu3">
+                    <ul>
+                        <li>Insert语句</li>
+                        <li>CVS语句</li>
+                    </ul>
+                </div>
+            </li>
+            <li>删除</li>
+            <li>重命名</li>
+            <hr />
+            <li>刷新</li>
+        </ul>
+    </div>
+    <script>
+
+
+        //获取窗口内部大小
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+
+        //用于重新计算窗口大小
+        window.addEventListener('resize', ()=>{
+            width = window.innerWidth;
+            height = window.innerHeight;
+        })
+
+        //默认隐藏右键菜单
+        hiddenRightMenu('right-menu');
+        document.getElementById("test-area").addEventListener('contextmenu', (e) => {
+            e.preventDefault(e);    //覆盖原生右键事件
+            showRightMenu(e, 'right-menu');   //显示菜单
+        })
+        document.getElementById("test-area").addEventListener('click', (e) => {
+            hiddenRightMenu('right-menu');
+        })
+        function showRightMenu(e, id) {
+            var rightMenu = document.getElementById(id);
+            if(e.clientY + 520 >= height){
+                rightMenu.style.top = (height - 530) + "px";
+            }else{
+                rightMenu.style.top = e.clientY + "px";
+            }
+            if(e.clientX + 200 >= width){
+                rightMenu.style.left = (width - 400) + "px";
+            }else{
+                rightMenu.style.left = e.clientX + "px";
+            }
+            // rightMenu.style.left = e.clientX + "px";
+            // rightMenu.style.top = e.clientY + "px";
+            rightMenu.style.display = 'block';
+        }
+        function hiddenRightMenu(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+        //二级菜单事件
+        document.getElementById('generate-sql').addEventListener('mouseover', (e) => {
+            document.getElementById('right-menu2').style.display = 'block';
+        })
+        document.getElementById('generate-sql').addEventListener('mouseout', (e) => {
+            document.getElementById('right-menu2').style.display = 'none';
+        })
+        document.getElementById('copy').addEventListener('mouseover', (e) => {
+            document.getElementById('right-menu3').style.display = 'block';
+        })
+        document.getElementById('copy').addEventListener('mouseout', (e) => {
+            document.getElementById('right-menu3').style.display = 'none';
+        })
+    </script>
+</body>
+
+</html>

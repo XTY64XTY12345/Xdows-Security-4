@@ -1,0 +1,51 @@
+@import "color.css";
+
+.icon-bar {
+	height: calc(100vh - 60px);
+	width: 55px;
+	margin: 4px 2px;
+	float:left;
+}
+
+
+.icon-bar a {
+	display: block;
+	position: relative;
+	background-color: var(--Background-color);
+	text-align: center;
+	transition: all 0.3s ease;
+	color: var(--Text-color);
+	font-size: 20px;
+	border-radius: 8px;
+	margin: 4px 0px;
+	padding: 10px 1px;
+	opacity: 1;
+	font-family: 'Segoe Fluent Icons'
+}
+
+.icon-bar a:hover {
+	opacity: 0.7;
+	transition-duration: 0.4s;
+}
+.icon-bar a:active {
+	opacity: 0.5;
+	transition-duration: 0s;
+}
+
+.activeDEF {
+	opacity: 0.7;
+}
+.left-bar {
+	background-color: var(--Theme-color)!important;
+	transition-duration: 0.4s;
+	width: 2px;
+	z-index: 20;
+	position: absolute;
+}
+
+.Tittle {	
+	font-size: 18px;
+	margin: 8px 24px;
+	font-weight:normal;
+	line-height: 30px;
+}

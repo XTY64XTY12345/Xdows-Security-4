@@ -1,0 +1,34 @@
+﻿@import"color.css";
+
+XU-Button,XU-Button-DEF{
+	background-color:var(--Theme-Background-color);
+	border-radius:8px;
+	color:var(--Text-color);
+	text-align:center;
+	text-decoration:none;
+	font-family:'Microsoft YaHei',sans-serif;
+	display:inline-block;
+	outline:none;
+	font-size:15px;
+	box-shadow:0 1px 0px 0 var(--Theme-Border-color);
+	-webkit-transition-duration:0.2s;
+	transition-duration:0.2s;
+	cursor:auto;
+	border:1px solid var(--Theme-Border-color);
+	padding:15px 40px;
+	opacity: 1;
+	position: relative;
+}
+XU-Button:hover,XU-Button-DEF:hover{
+	opacity: 0.8;
+}
+XU-Button:active,XU-Button-DEF:active{
+	opacity: 0.7;
+	box-shadow:0 0px 0px 0 var(--Theme-Border-color);
+}
+XU-Button-DEF{
+	background-color:var(--Theme-color);
+	color:var(--Text2-color);
+	box-shadow:0 1px 0px 0 var(--Text2-color);
+	border:1px solid var(--Theme-color);
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {margin:0;height: 100%;}
+body {
+	font-family: 'Microsoft YaHei',sans-serif;
+	background-color: var(--Background-color);
+	user-select:none;
+}
+.app {
+	width: calc(100vw - 63px);
+	height: calc(100vh - 80px);
+	margin-left: 63px;
+	position: relative;
+	transform: translateY(20px);
+	opacity: 0;
+	transition: all 0.5s cubic-bezier(0.33, 0.84, 0.36, 1.05);
+}
+
+.app-loaded {
+	transform: translateY(0);
+	opacity: 1 !important;
+}
+
+</style>
+<script src="./../Message.js"></script>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="./Bar.css">
+	<link rel="stylesheet" type="text/css" href="./Color.css">
+</head>
+<title>Xdows Security</title>
+<img src="./logo.ico" style="float: left;margin-left:4px" alt="" width="30" height="30">
+<h2 class="Tittle">&nbspXdows Security</h2>
+
+
+<div class="icon-bar"> 
+	<a class="activeDEF" id="bar1" title="主页" onclick=GoToAPPHTML("./Home/index.html","bar1")>
+		&#xE80F;
+	</a> 
+	
+	<a id="bar2" title="杀毒" onclick=GoToAPPHTML("./Security/index.html","bar2")>
+	&#xEA18;
+</a> 
+ 
+	<a id="bar3" title="Xdows Tools" onclick=GoToAPPHTML("./Xdows-Tools/index.html","bar3")>
+	&#xEA86;
+	</a> 
+	<a id="bar4" title="设置" onclick=GoToAPPHTML("./Settings/index.html","bar4")>
+	&#xE713;
+	</a>
+	<a id="LeftBar" class="left-bar"></a>
+</div>
+	
+<body>	
+<div class="app" id="APPDiv"> 
+	<iframe id="APPHTML" height="100%" width="100%"	onload="ChangeHtml()" scrolling="auto" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+</div>
+</body>
+<script>
+const message = parent.useMessage();
+const themeMedia = window.matchMedia("(prefers-color-scheme: light)");
+const APPHTML = document.getElementById("APPHTML");
+const loadingAnimation = document.createElement("div");
+const loadingImage = document.createElement("img");
+
+function ChangeHtml() {
+	if (APPHTML.src.includes("Xdows-Tools/index.html")) {
+		document.body.removeChild(loadingAnimation);
+		document.body.removeChild(loadingImage);
+	}
+	if (APPHTML.src.includes("index.html")) {
+		document.getElementById('APPDiv').classList.add('app-loaded');
+	}
+	updateTheme(themeMedia.matches);
+}
+function getBrowserType() {
+	var ua = navigator.userAgent
+	var isOpera = ua.indexOf('Opera') > -1
+	if (isOpera) { return 'Opera' }
+	var isIE = (ua.indexOf('compatible') > -1) && (ua.indexOf('MSIE') > -1) && !isOpera
+	var isIE11 = (ua.indexOf('Trident') > -1) && (ua.indexOf("rv:11.0") > -1)
+	// 返回结果
+	if (isIE11) { return 'IE11'
+	} else if (isIE) {
+		// 检测是否匹配
+		var re = new RegExp('MSIE (\\d+\\.\\d+);')
+		re.test(ua)
+		// 获取版本
+		var ver = parseFloat(RegExp["$1"])
+		// 返回结果
+		if (ver == 7) { return 'IE7'
+		} else if (ver == 8) { return 'IE8'
+		} else if (ver == 9) { return 'IE9'
+		} else if (ver == 10) { return 'IE10'
+		} else { return "IE" }
+	}
+	var isEdge = ua.indexOf("Edge") > -1
+	if (isEdge) { return 'Edge' }
+	var isFirefox = ua.indexOf("Firefox") > -1
+	if (isFirefox) { return 'Firefox' }
+	var isSafari = (ua.indexOf("Safari") > -1) && (ua.indexOf("Chrome") == -1)
+	if (isSafari) { return "Safari" }
+	var isChrome = (ua.indexOf("Chrome") > -1) && (ua.indexOf("Safari") > -1) && (ua.indexOf("Edge") == -1)
+	if (isChrome) { return 'Chrome' }
+	return ''
+}
+function GoToAPPHTML(a, b) {
+	const x = document.getElementsByClassName("activeDEF")[0];
+	const appDiv = document.getElementById("APPDiv");
+	if (b == "bar3") {
+		const isLightTheme = themeMedia.matches;
+		loadingAnimation.id = "loadingAnimation";
+		loadingAnimation.style.position = "absolute";
+		loadingAnimation.style.top = "50%";
+		loadingAnimation.style.left = "50%";
+		loadingAnimation.style.transform = "translate(-50%, -50%)";
+		loadingAnimation.style.zIndex = "1000";
+		loadingAnimation.style.fontSize = "20px";
+		loadingAnimation.style.color = "var(--Text-color)";
+		loadingAnimation.style.display = "flex";
+		loadingAnimation.style.flexDirection = "column";
+		loadingAnimation.style.alignItems = "center";
+		loadingImage.src = isLightTheme ? "./Loading/light.gif" : "./Loading/dark.gif";
+		loadingImage.alt = "加载动画";
+		loadingImage.style.width = "40px";
+		loadingImage.style.height = "40px";
+		loadingImage.style.marginBottom = "10px";
+		loadingImage.style.position = "absolute";
+		loadingImage.style.top = "50%";
+		loadingImage.style.left = "50%";
+		loadingImage.style.transform = "translate(-50%, -155%)";
+		loadingImage.style.zIndex = "1000";
+		loadingImage.style.display = "flex";
+		loadingImage.style.flexDirection = "column";
+		loadingImage.style.alignItems = "center";
+
+		loadingAnimation.appendChild(loadingImage);
+		loadingAnimation.innerText = "正在加载";
+		document.body.appendChild(loadingAnimation);
+		document.body.appendChild(loadingImage);
+	}
+
+	const offsets = {
+		Firefox: { bar1: "-182px", bar2: "-135px", bar3: "-86px", bar4: "-38px" },
+		default: { bar1: "-166px", bar2: "-122px", bar3: "-77px", bar4: "-34px" }
+	};
+	const browserType = getBrowserType();
+	const offset = (offsets[browserType] || offsets.default)[b] || "0px";
+
+	x.className = ""; // 更新之前清除当前激活状态
+	document.getElementById(b).className = "activeDEF";
+	document.getElementById("LeftBar").style.top = offset;
+	appDiv.classList.remove("app-loaded");
+	APPHTML.src = a;
+}
+function UseFunction(a){
+	const Http = new XMLHttpRequest();
+	Http.open("GET", '/Function/'+a);
+	Http.send();
+}
+function Update(){
+	message.info("暂未实现")
+}
+function MessageInfo(a){
+	message.info(a)
+}
+function MessageSuccess(a){
+	message.success(a)
+}
+function updateTheme(isLight) {
+	const theme = isLight ? 'light' : 'dark';
+	document.documentElement.dataset.theme = theme;
+	APPHTML.contentWindow.document.documentElement.dataset.theme = theme;
+}
+themeMedia.addListener(e => {
+	updateTheme(e.matches);
+	const loadingImage = document.getElementById("loadingAnimation")?.querySelector("img");
+	if (loadingImage) {
+		loadingImage.src = e.matches ? "./loading-light.gif" : "./loading-dark.gif";
+	}
+});
+updateTheme(themeMedia.matches);
+document.getElementById("bar1").click();
+</script>
+</html>
+
+
