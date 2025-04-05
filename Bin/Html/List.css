@@ -38,9 +38,9 @@
     height: 0px;
     transition-duration: 0.2s;
     width: 4px;
-    position: absolute; /* 改为absolute以便移动 */
+    position: absolute; /* 鏀逛负absolute浠ヤ究绉诲姩 */
     top: 0px;
-    display: none; /* 默认隐藏 */
+    display: none; /* 榛樿闅愯棌 */
     border-radius: 2px;
 	opacity: 1!important;
 }
