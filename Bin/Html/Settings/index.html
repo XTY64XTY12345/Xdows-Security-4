@@ -179,14 +179,43 @@
 </body>
 <script src="./../Combo.js"></script>
 <script>
-      
       const colorPicker = document.getElementById('ThemeColorPicker');
-      
+      const comboItems = document.querySelectorAll('.combo-item');
+
       // 获取 CSS 变量的值
       const themeColor = getComputedStyle(document.documentElement)
         .getPropertyValue('--Theme-color').trim();
-      
+
       // 设置颜色选择器的值
       colorPicker.value = themeColor;
+
+      // 更新颜色模式的值为英文
+      const ColorModeMapping = {
+        '跟随系统': 'System',
+        '浅色模式': 'Light',
+        '深色模式': 'Dark'
+      };
+
+      // 从 Local Storage 加载颜色模式
+      const savedColorMode = localStorage.getItem('colorMode');
+      if (savedColorMode) {
+        const displayMode = Object.keys(ColorModeMapping).find(
+          key => ColorModeMapping[key] === savedColorMode
+        );
+        comboText.textContent = displayMode || '跟随系统';
+        comboItems.forEach(item => {
+          item.setAttribute('aria-selected', item.textContent === displayMode);
+        });
+      }
+
+      // 监听颜色模式选择
+      comboItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const selectedMode = item.textContent;
+          comboText.textContent = selectedMode;
+          comboItems.forEach(i => i.setAttribute('aria-selected', i === item));
+          localStorage.setItem('colorMode', ColorModeMapping[selectedMode]);
+        });
+      });
 </script>
 </html>
