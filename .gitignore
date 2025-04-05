@@ -1,3 +1,5 @@
 /Build/
 /.gitignore
 *.bak
+*.exe
+*.dll
