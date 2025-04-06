@@ -64,13 +64,6 @@
 				</div>
 			</div>
 		</div>
-		<div class="con2">
-        <h5>主题颜色</h5>
-		<div class="con">
-			<input type="color" id="ThemeColorPicker">
-      <XU-Button onclick="ChangeColorPicker(themeColor)">重置</XU-Button>
-		</div>
-		</div>
 	</div>
     </div>
   </div>
@@ -180,24 +173,7 @@
 </body>
 <script src="./../Combo.js"></script>
 <script>
-      console.clear();
-      const colorPicker = document.getElementById('ThemeColorPicker');
       const comboItems = document.querySelectorAll('.combo-item');
-
-      let themeColor = parent.GetThemeDefColor()
-
-      function ChangeColorPicker(color){
-        colorPicker.value = color;
-        localStorage.setItem('ThemeColor', colorPicker.value);
-      }
-
-      // 主题色监听事件
-      colorPicker.addEventListener("change", watchColorPicker, false);
-
-      function watchColorPicker(event) {
-          localStorage.setItem('ThemeColor', event.target.value);
-      }
-      ChangeColorPicker(localStorage.getItem('ThemeColor'));
       const ColorModeMapping = {
         '跟随系统': 'system',
         '浅色模式': 'light',
