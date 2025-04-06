@@ -33,7 +33,7 @@
 #customers tr:active, #customers th:active {
 	opacity: 0.7;
 }
-.left-bar {
+.ListBar {
     background-color: var(--Theme-color)!important;
     height: 0px;
     transition-duration: 0.2s;

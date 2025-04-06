@@ -48,7 +48,7 @@
 		<XU-Button onclick=AddFile()>添加文件</XU-Button>
 		<XU-Button onclick=DelFiles()>删除文件</XU-Button>
 </div>
-<div class="left-bar"></div>
+<div class="ListBar"></div>
 <table id="customers">
     <tr>
         <th>文件名称</th>
@@ -68,7 +68,7 @@ function AddFile() {
 }
 function TableClick() {
     const tab = document.querySelector('#customers');
-    const leftBar = document.querySelector('.left-bar');
+    const leftBar = document.querySelector('.ListBar');
 
     // 事件委托
     tab.addEventListener('click', function(event) {

@@ -63,7 +63,7 @@
 	<XU-Button onclick=GetProcessList()>刷新列表</XU-Button>
 	<XU-Button onclick=KillProcess(PIDData)>终止进程</XU-Button>
 </div>
-<div class="left-bar"></div>
+<div class="ListBar"></div>
 <table id="customers">
     <tr>
         <th>进程名称</th>
@@ -78,7 +78,7 @@ NameData = ''
     const overlay = document.querySelector('.acrylic-overlay');
 
 const tab = document.querySelector('#customers');
-const leftBar = document.querySelector('.left-bar');
+const leftBar = document.querySelector('.ListBar');
 const Http = new XMLHttpRequest();
 GetProcessList()
 

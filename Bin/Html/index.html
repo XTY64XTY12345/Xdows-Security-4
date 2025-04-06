@@ -51,7 +51,7 @@ body {
 	<a id="bar4" title="设置" onclick="GoToAPPHTML('./Settings/index.html','bar4')">
 	&#xE713;
 	</a>
-	<a id="LeftBar" class="left-bar"></a>
+	<a id="SideBar" class="Sidebar"></a>
 </div>
 	
 <body>	
@@ -198,7 +198,7 @@ function GoToAPPHTML(a, b) {
 
 	x.className = ""; // 更新之前清除当前激活状态
 	document.getElementById(b).className = "activeDEF";
-	document.getElementById("LeftBar").style.top = offset;
+	document.getElementById("SideBar").style.top = offset;
 	appDiv.classList.remove("app-loaded");
 	APPHTML.src = a;
 }

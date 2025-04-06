@@ -29,7 +29,7 @@
         padding: 12px 20px!important;
         font-size:13px!important;
      }
-	.left-bar {
+	.ListBar {
 		left: 8px;
 	}
   </style>
@@ -56,7 +56,7 @@
   </div>
 </div>
 </div>
-<div class="left-bar"></div>
+<div class="ListBar"></div>
 <table id="customers">
     <tr>
         <th>文件名称</th>
@@ -103,7 +103,7 @@ function ScanAll() {
 }
 function TableClick() {
     const tab = document.querySelector('#customers');
-    const leftBar = document.querySelector('.left-bar');
+    const leftBar = document.querySelector('.ListBar');
 
     // 事件委托
     tab.addEventListener('click', function(event) {

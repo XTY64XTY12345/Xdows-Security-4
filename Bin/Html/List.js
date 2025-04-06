@@ -2,18 +2,18 @@ function GetListData(a,b) {
 const table = document.querySelector(a);
 
 if (table) {
-  // ÊÕ¼¯ËùÓĞ·ûºÏÌõ¼şµÄĞĞÄÚÈİ
+  // æ”¶é›†æ‰€æœ‰ç¬¦åˆæ¡ä»¶çš„è¡Œå†…å®¹
   const output = Array.from(table.rows)
     .map((row, rowIndex) => {
       const secondCell = row.cells[b];
-      // Ìø¹ı±íÍ·ºÍ·ÇÄÚÈİµ¥Ôª¸ñ
+      // è·³è¿‡è¡¨å¤´å’Œéå†…å®¹å•å…ƒæ ¼
       if (!secondCell || secondCell.tagName === 'TH') return null;
       return `${secondCell.textContent.trim()}`;
     })
-    .filter(item => item !== null) // ¹ıÂË¿ÕÏî
-    .join('|||'); // ÓÃ ||| Á¬½ÓËùÓĞĞĞ
+    .filter(item => item !== null) // è¿‡æ»¤ç©ºé¡¹
+    .join('|||'); // ç”¨ ||| è¿æ¥æ‰€æœ‰è¡Œ
 
-  // ×îÖÕÊä³ö½á¹û£¨Èç¹ûÓĞÄÚÈİ£©
+  // æœ€ç»ˆè¾“å‡ºç»“æœï¼ˆå¦‚æœæœ‰å†…å®¹ï¼‰
   if (output) {
     return output;
   } else {
