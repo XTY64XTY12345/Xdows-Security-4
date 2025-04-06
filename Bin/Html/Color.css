@@ -32,3 +32,6 @@ html[data-theme='dark'] {
 h1,h2,h3,h4,h5,h6,p{
 	color: var(--Text-color);
 }
+body {
+  transition: background-color 0.2s linear;
+}

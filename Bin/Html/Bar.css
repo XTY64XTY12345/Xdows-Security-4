@@ -2,7 +2,7 @@
 
 .icon-bar {
 	height: calc(100vh - 60px);
-	width: 55px;
+	width: 42px;
 	margin: 4px 2px;
 	float:left;
 }
@@ -13,31 +13,36 @@
 	position: relative;
 	background-color: var(--Background-color);
 	text-align: center;
-	transition: all 0.3s ease;
 	color: var(--Text-color);
 	font-size: 20px;
 	border-radius: 8px;
 	margin: 4px 0px;
 	padding: 10px 1px;
 	opacity: 1;
-	font-family: 'Segoe Fluent Icons'
+	font-family: 'Segoe Fluent Icons';
+	transition: all 0.2s linear;
 }
 
 .icon-bar a:hover {
-	opacity: 0.7;
-	transition-duration: 0.4s;
+	background-color: rgb(from var(--Background-color) calc(r * 0.96) calc(g * 0.96) calc(b * 0.96) / alpha);
+	opacity: 1;
 }
-.icon-bar a:active {
-	opacity: 0.5;
-	transition-duration: 0s;
+html[data-theme='dark'] .icon-bar a:hover{
+	clear: both;
+	background-color: var(--Background-color);
+	opacity: 0.9;
+}
+.icon-bar a:active,html[data-theme='dark'] .icon-bar a:active {
+	opacity: 0.7;
 }
 
 .activeDEF {
-	opacity: 0.7;
+	background-color: rgb(from var(--Background-color) calc(r * 0.95) calc(g * 0.95) calc(b * 0.95) / alpha)!important;
 }
 .Sidebar {
+	clear: both;
 	background-color: var(--Theme-color)!important;
-	transition-duration: 0.4s;
+	transition:all 20ms ease-in-out;
 	width: 2px;
 	z-index: 20;
 	position: absolute;

@@ -6,7 +6,6 @@
   height: calc(100vh - 105px);
   top: -25px;
   user-select:none;
-  background: var(--Background-color)
 }
 .tab-pane {
   display: inline-block;
@@ -41,7 +40,7 @@
   background: var(--Theme-color);
   left: 35%;
   bottom: 0px;
-  transition: 0.3s;
+  transition: 0.2s;
   transform: scaleX(0);
 }
 
@@ -57,10 +56,9 @@
   top: 42px;
   bottom: 0;
   right: 0;
-  transition: 0.3s;
+  transition: 0.2s;
   opacity: 0;
   color: var(--Text-color);
-  background: var(--Background-color);
 }
 
 .tabs input[type="radio"]:checked + .tab-item + .tab-content {
