@@ -83,11 +83,20 @@ function FollowSystem(){
 	}
 }
 
+function GetThemeDefColor(){
+	return getComputedStyle(document.documentElement).getPropertyValue('--Theme-color').trim();
+}
+
 function ChangeTheme(){
 	savedColorMode = localStorage.getItem('ColorMode');
 	if (!savedColorMode) {
 	    savedColorMode = 'system'; // 默认值
 	    localStorage.setItem('ColorMode', savedColorMode);
+	}
+	savedThemeColor = localStorage.getItem('ThemeColor');
+	if (!savedThemeColor) {
+	    savedThemeColor = GetThemeDefColor();// 获取主题色
+	    localStorage.setItem('ThemeColor', savedThemeColor);
 	}
 	themeMedia = matchMedia("(prefers-color-scheme: light)");
 	if (savedColorMode === 'system') {
