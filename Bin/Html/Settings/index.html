@@ -108,7 +108,7 @@
 		<div class="con2">
 		<h5 style='margin-left:32px!important'>该功能基于 Xdows Tools 插件</h5>
 		<div class="con">
-			<XU-Button onclick=parent.GoToAPPHTML("./Xdows-Tools/index.html","bar3")>查看</XU-Button>
+			<XU-Button onclick="parent.GoToAPPHTML('./Xdows-Tools/index.html','bar3')">查看</XU-Button>
 		</div>
 		</div>
 	</div>
@@ -182,31 +182,23 @@
       const colorPicker = document.getElementById('ThemeColorPicker');
       const comboItems = document.querySelectorAll('.combo-item');
 
-      // 获取 CSS 变量的值
       const themeColor = getComputedStyle(document.documentElement)
         .getPropertyValue('--Theme-color').trim();
 
-      // 设置颜色选择器的值
       colorPicker.value = themeColor;
-
-      // 更新颜色模式的值为英文
       const ColorModeMapping = {
-        '跟随系统': 'System',
-        '浅色模式': 'Light',
-        '深色模式': 'Dark'
+        '跟随系统': 'system',
+        '浅色模式': 'light',
+        '深色模式': 'dark'
       };
-
-      // 从 Local Storage 加载颜色模式
-      const savedColorMode = localStorage.getItem('colorMode');
-      if (savedColorMode) {
-        const displayMode = Object.keys(ColorModeMapping).find(
-          key => ColorModeMapping[key] === savedColorMode
-        );
-        comboText.textContent = displayMode || '跟随系统';
-        comboItems.forEach(item => {
-          item.setAttribute('aria-selected', item.textContent === displayMode);
-        });
-      }
+      let savedColorMode = localStorage.getItem('ColorMode');
+      const displayMode = Object.keys(ColorModeMapping).find(
+        key => ColorModeMapping[key] === savedColorMode
+      );
+      comboText.textContent = displayMode || '跟随系统';
+      comboItems.forEach(item => {
+        item.setAttribute('aria-selected', item.textContent === displayMode);
+      });
 
       // 监听颜色模式选择
       comboItems.forEach(item => {
@@ -214,7 +206,7 @@
           const selectedMode = item.textContent;
           comboText.textContent = selectedMode;
           comboItems.forEach(i => i.setAttribute('aria-selected', i === item));
-          localStorage.setItem('colorMode', ColorModeMapping[selectedMode]);
+          localStorage.setItem('ColorMode', ColorModeMapping[selectedMode]);
         });
       });
 </script>

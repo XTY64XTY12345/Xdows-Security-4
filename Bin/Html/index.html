@@ -37,18 +37,18 @@ body {
 
 
 <div class="icon-bar"> 
-	<a class="activeDEF" id="bar1" title="主页" onclick=GoToAPPHTML("./Home/index.html","bar1")>
+	<a class="activeDEF" id="bar1" title="主页" onclick="GoToAPPHTML('./Home/index.html','bar1')">
 		&#xE80F;
 	</a> 
 	
-	<a id="bar2" title="杀毒" onclick=GoToAPPHTML("./Security/index.html","bar2")>
+	<a id="bar2" title="杀毒" onclick="GoToAPPHTML('./Security/index.html','bar2')">
 	&#xEA18;
 </a> 
  
-	<a id="bar3" title="Xdows Tools" onclick=GoToAPPHTML("./Xdows-Tools/index.html","bar3")>
+	<a id="bar3" title="Xdows Tools" onclick="GoToAPPHTML('./Xdows-Tools/index.html','bar3')">
 	&#xEA86;
 	</a> 
-	<a id="bar4" title="设置" onclick=GoToAPPHTML("./Settings/index.html","bar4")>
+	<a id="bar4" title="设置" onclick="GoToAPPHTML('./Settings/index.html','bar4')">
 	&#xE713;
 	</a>
 	<a id="LeftBar" class="left-bar"></a>
@@ -62,20 +62,65 @@ body {
 <script>
 console.clear();
 const message = parent.useMessage();
-const themeMedia = window.matchMedia("(prefers-color-scheme: light)");
 const APPHTML = document.getElementById("APPHTML");
 const loadingAnimation = document.createElement("div");
 const loadingImage = document.createElement("img");
 
+// 主题功能
+function updateTheme(isLight) {
+	const theme = isLight ? 'light' : 'dark';
+	document.documentElement.dataset.theme = theme;
+	APPHTML.contentWindow.document.documentElement.dataset.theme = theme;
+	if (loadingImage) {
+		loadingImage.src = isLight ? "./loading-light.gif" : "./loading-dark.gif";
+	}
+}
+function FollowSystem(){
+	if (themeMedia.matches){
+		updateTheme(true);
+	}else{
+		updateTheme(false);
+	}
+}
+
+function ChangeTheme(){
+	savedColorMode = localStorage.getItem('ColorMode');
+	if (!savedColorMode) {
+	    savedColorMode = 'system'; // 默认值
+	    localStorage.setItem('ColorMode', savedColorMode);
+	}
+	themeMedia = matchMedia("(prefers-color-scheme: light)");
+	if (savedColorMode === 'system') {
+		// 监听事件
+		themeMedia.addEventListener('change', FollowSystem);
+		FollowSystem();
+	} else {
+		updateTheme(savedColorMode === 'light');
+		if (themeMedia) {
+			themeMedia.removeEventListener('change', FollowSystem);
+		}
+	}
+}
+ChangeTheme();
+function GetNowTheme(){
+	if (savedColorMode === 'system') {
+		return matchMedia("(prefers-color-scheme: light)").matches ? 'light' : 'dark'
+	} else {
+		return savedColorMode
+	}
+}
+
 function ChangeHtml() {
-	if (APPHTML.src.includes("Xdows-Tools/index.html")) {
+	if (document.body.contains(loadingAnimation)) {
 		document.body.removeChild(loadingAnimation);
+	}
+	if (document.body.contains(loadingImage)) {
 		document.body.removeChild(loadingImage);
 	}
 	if (APPHTML.src.includes("index.html")) {
 		document.getElementById('APPDiv').classList.add('app-loaded');
 	}
-	updateTheme(themeMedia.matches);
+	updateTheme(GetNowTheme() === 'light');
 }
 function getBrowserType() {
 	var ua = navigator.userAgent
@@ -112,7 +157,7 @@ function GoToAPPHTML(a, b) {
 	const x = document.getElementsByClassName("activeDEF")[0];
 	const appDiv = document.getElementById("APPDiv");
 	if (b == "bar3") {
-		const isLightTheme = themeMedia.matches;
+		const isLightTheme = GetNowTheme();
 		loadingAnimation.id = "loadingAnimation";
 		loadingAnimation.style.position = "absolute";
 		loadingAnimation.style.top = "50%";
@@ -171,19 +216,13 @@ function MessageInfo(a){
 function MessageSuccess(a){
 	message.success(a)
 }
-function updateTheme(isLight) {
-	const theme = isLight ? 'light' : 'dark';
-	document.documentElement.dataset.theme = theme;
-	APPHTML.contentWindow.document.documentElement.dataset.theme = theme;
-}
-themeMedia.addListener(e => {
-	updateTheme(e.matches);
-	const loadingImage = document.getElementById("loadingAnimation")?.querySelector("img");
-	if (loadingImage) {
-		loadingImage.src = e.matches ? "./loading-light.gif" : "./loading-dark.gif";
+// 监听本地存储 ColorMode
+window.addEventListener("storage", function(e) {
+	if(e.key ==='ColorMode'){
+		ChangeTheme();
 	}
 });
-updateTheme(themeMedia.matches);
+
 document.getElementById("bar1").click();
 </script>
 </html>
