@@ -157,7 +157,7 @@ function GoToAPPHTML(a, b) {
 	const x = document.getElementsByClassName("activeDEF")[0];
 	const appDiv = document.getElementById("APPDiv");
 	if (b == "bar3") {
-		const isLightTheme = GetNowTheme();
+		const isLightTheme = GetNowTheme() === "light";
 		loadingAnimation.id = "loadingAnimation";
 		loadingAnimation.style.position = "absolute";
 		loadingAnimation.style.top = "50%";
