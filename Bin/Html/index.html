@@ -103,10 +103,11 @@ function ChangeTheme(){
 }
 ChangeTheme();
 function GetNowTheme(){
-	if (savedColorMode === 'system') {
+	let NowColorMode = localStorage.getItem('ColorMode');
+	if (NowColorMode === 'system') {
 		return matchMedia("(prefers-color-scheme: light)").matches ? 'light' : 'dark'
 	} else {
-		return savedColorMode
+		return NowColorMode
 	}
 }
 

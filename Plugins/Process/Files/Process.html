@@ -158,6 +158,16 @@ function TableClick() {
 // 初次绑定事件
 TableClick();
 // 适配软件主题
-document.documentElement.dataset.theme = top.GetNowTheme();
+function ChangeHtmlTheme() {
+    document.documentElement.dataset.theme = top.GetNowTheme();
+}
+ChangeHtmlTheme();
+let PluginsMedia = matchMedia("(prefers-color-scheme: light)");
+PluginsMedia.addListener(ChangeHtmlTheme);
+window.addEventListener("storage", function(e) {
+	if(e.key ==='ColorMode'){
+		ChangeHtmlTheme();
+	}
+});
 </script>
 </html>
