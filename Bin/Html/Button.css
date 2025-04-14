@@ -30,6 +30,11 @@ XU-Button:active,XU-Button-DEF:active{
 XU-Button:active{
 	border-bottom: 1px solid var(--Theme-Border-color);
 }
+XU-Button[disabled],XU-Button:hover[disabled],XU-Button:active[disabled]{
+	background-color: var(--Theme-Background-color-disabled);
+	pointer-events:none;
+	opacity: 0.5;
+}
 XU-Button-DEF{
 	background-color:var(--Theme-color);
 	color:var(--Text2-color);

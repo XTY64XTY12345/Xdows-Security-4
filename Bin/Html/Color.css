@@ -7,7 +7,8 @@
   --Theme-Background-color: #fbfbfc;
   --Theme-Background-color2:#FFFFFF;
   --Theme-Background-color3:#F3F3F3;
-  --Theme-Border-color: #e5e5e5;
+  --Theme-Border-color: #e5e5e5;;
+  --Theme-Background-color-disabled : rgb(240, 240, 240);
   --Display-Dark: none;
   --Display-Light: '';
   --Message-Shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
@@ -24,6 +25,7 @@ html[data-theme='dark'] {
   --Theme-Background-color2:#2B2B2B;
   --Theme-Background-color3:#202020;
   --Theme-Border-color: #3B3B3B;
+  --Theme-Background-color-disabled :rgb(39, 39, 39);
   --Display-Dark: '';
   --Display-Light: none;
   color-scheme: dark;
