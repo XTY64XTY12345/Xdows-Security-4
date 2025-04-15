@@ -18,7 +18,7 @@ echo 编译完成
 echo 等待用户响应打包操作...
 pause.
 echo 开始打包
-"G:\Inno Setup 6\ISCC.exe" "%cd%\Setup.iss"
+"F:\Inno Setup 6\ISCC.exe" "%cd%\Setup.iss"
 echo 开始完成
 echo 构建操作执行完成
 pause.
