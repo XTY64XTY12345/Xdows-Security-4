@@ -25,7 +25,7 @@ DefaultDirName={autopf}\{#MyAppName}
 UninstallDisplayIcon={app}\{#MyAppExeName}
 DisableProgramGroupPage=yes
 DisableWelcomePage=no
-LicenseFile=F:\Xdows-Security-4\License
+LicenseFile=F:\Xdows-Security-4\LICENSE
 ; 取消注释以下行以在非管理安装模式下运行 (仅为当前用户安装)。
 PrivilegesRequired=admin
 OutputDir=F:\
