@@ -24,6 +24,16 @@ body {
 	opacity: 1 !important;
 }
 
+@media (orientation: portrait) {
+  .app {
+    height: calc(100vh - 96px);
+	margin-left: 0px;
+	width: 100%;
+  }
+  .icon-bar .Sidebar{
+	display: none;
+  }
+}
 </style>
 <script src="./../Message.js"></script>
 
@@ -227,5 +237,6 @@ window.addEventListener("storage", function(e) {
 document.getElementById("bar1").click();
 </script>
 </html>
+``` 
 
 
