@@ -6,12 +6,12 @@
   height: calc(100vh - 105px);
   top: -25px;
   user-select:none;
+  white-space: nowrap;
 }
 .tab-pane {
   display: inline-block;
 }
 .tabs input[type="radio"] {
-
   position: absolute;
   clip: rect(0, 0, 0, 0);
 }

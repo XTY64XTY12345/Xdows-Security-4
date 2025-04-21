@@ -36,3 +36,7 @@ h1,h2,h3,h4,h5,h6,p{
 body {
   transition: background-color 0.2s linear;
 }
+@font-face {
+  font-family: 'Segoe Fluent Icons';  /* 自定义字体名称 */
+  src: url('/SegoeIcons.ttf');  /* 外部字体文件路径 */
+}

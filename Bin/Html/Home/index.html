@@ -31,6 +31,12 @@ span {
 XU-Button-DEF {
 	padding: 15px 40px!important;
 }
+@media (orientation: portrait) {
+  .con,.TittleH3 {
+    text-align: center;
+	margin-left: 0;
+  }
+}
 @media (max-width: 552px) {
   img {
 	display: none;
@@ -44,10 +50,10 @@ XU-Button-DEF {
   <title>主页</title>
 </head>
 <body>
-<h3>您已受到我们的保护</h3>
+<h3 class="TittleH3">您已受到我们的保护</h3>
 <img src="./PNG/Xlogo.png" alt="">
 <div class="con">
-  <XU-Button-DEF onclick=parent.GoToAPPHTML("./Security/index.html","bar2")>扫描病毒</XU-Button-DEF>
+  <XU-Button-DEF onclick="parent.GoToAPPHTML('./Security/index.html','bar2')">扫描病毒</XU-Button-DEF>
 </div>
 
 <XU-Card-Box>
