@@ -14,6 +14,8 @@
   --Message-Shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
   --Menu-Shadow: 0px 8px 16px rgba(0, 0, 0, 0.14);
   color-scheme: light;
+  --BorderRadius:8px;
+  --SmallBorderRadius:4px;
 }
 html[data-theme='dark'] {
   --Theme-color: #25D9E6;

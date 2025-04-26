@@ -2,7 +2,7 @@
 
 .icon-bar {
 	height: calc(100vh - 60px);
-	width: 42px;
+	width: 44px;
 	margin: 4px 2px;
 	float:left;
 }
@@ -14,7 +14,7 @@
 	text-align: center;
 	color: var(--Text-color);
 	font-size: 20px;
-	border-radius: 8px;
+	border-radius: var(--BorderRadius);
 	margin: 4px 0px;
 	padding: 10px 1px;
 	opacity: 1;

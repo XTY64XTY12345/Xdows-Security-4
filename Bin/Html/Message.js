@@ -27,7 +27,7 @@ function useMessage(params = {}) {
     left: 50%;
     display: flex;
     padding: 12px 16px;
-    border-radius: 4px;
+    border-radius: var(--SmallBorderRadius);
     border: 1px solid var(--Theme-Border-color);
     background-color: var(--Theme-Background-color2);
     box-shadow: var(--Message-Shadow);

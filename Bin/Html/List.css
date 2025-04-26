@@ -5,7 +5,7 @@
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    border-radius: 8px;
+    border-radius: var(--BorderRadius);
     border: solid 4px var(--Theme-Border-color);
 }
 #customers td, #customers th {

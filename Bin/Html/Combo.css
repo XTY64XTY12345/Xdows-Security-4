@@ -94,5 +94,5 @@
 }
 .combo-popup::-webkit-scrollbar-thumb {
     background: var(--Theme-Background-color3);
-    border-radius: 4px;
+    border-radius: var(--SmallBorderRadius);
 }

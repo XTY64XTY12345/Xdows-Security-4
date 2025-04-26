@@ -4,7 +4,7 @@ XU-Card {
   transition: 0.1s;
   user-select:none;
   width: 30%;
-  border-radius: 5px;
+  border-radius: var(--SmallBorderRadius);
   border: 1px solid var(--Theme-Border-color);
   margin-left: 4px;
   margin-right: 4px;

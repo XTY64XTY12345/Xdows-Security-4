@@ -2,7 +2,7 @@
 
 XU-Button,XU-Button-DEF{
 	background-color:var(--Theme-Background-color);
-	border-radius:8px;
+	border-radius: var(--BorderRadius);
 	color:var(--Text-color);
 	text-align:center;
 	text-decoration:none;
