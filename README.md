@@ -7,7 +7,7 @@
   <p align="center">
     一个简单的易语言杀软项目
     <br />
-    <a href="https://xty64xty.netlify.app/Xdows-Security-4/get-started.html">文档</a>
+    <a href="https://xty64xty.netlify.app/zh/Xdows-Security-4/get-started.html">文档</a>
     ·
     <a href="https://github.com/XTY64XTY12345/Xdows-Security-4/issues">反馈</a>
     ·
