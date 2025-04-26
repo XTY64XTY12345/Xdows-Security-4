@@ -13,7 +13,7 @@
 	}
     .con,.con3 {
       float: right;
-      display: inline-block;
+
     }
     .con2 {
       clear: both;
@@ -38,6 +38,7 @@
   <link rel="stylesheet" type="text/css" href="./../Switch.css">
   <link rel="stylesheet" type="text/css" href="./../Color.css">
   <link rel="stylesheet" type="text/css" href="./../Combo.css">
+  <link rel="stylesheet" type="text/css" href="./../Accordion.css">
   <title>Settings</title>
 </head>
 <body>
@@ -167,12 +168,44 @@
   </div>
   <div class="tab-pane">
     <input type="radio" name="tab" id="tab06"/>
-    <label class="tab-item" for="tab06">关于软件</label>
+    <label class="tab-item" for="tab06">常见问题</label>
     <div class="tab-content">
-    <h4>关于软件</h4>
-    <h5 style='margin-top:-16px!important'>开发者：Xdows Software
-    <br>
-    版本号：4.00 Beta<br></h5>
+      <h4>常见问题</h4>
+      <Accordion>
+        <input type="checkbox" id="item1" class="accordion-input">
+        <label for="item1" class="accordion-label">为什么有些功能无法使用或功能缺失</label>
+        <div class="accordion-content">
+            <p>目前该软件还在开发，有些功能还在制作。</p>
+        </div>
+        </Accordion>
+        <Accordion>
+        <input type="checkbox" id="item2" class="accordion-input">
+        <label for="item2" class="accordion-label">主题样式定制 该怎么该</label>
+        <div class="accordion-content">
+            <p>根据注释修改相关值，实在看不懂可以看一下 css 的格式</p>
+        </div>
+        </Accordion>
+        
+        <Accordion>
+        <input type="checkbox" id="item3" class="accordion-input">
+        <label for="item3" class="accordion-label">如何反馈 Bug / 请求功能</label>
+        <div class="accordion-content">
+            <p>在下面的按钮中点击 “反馈” 按钮跳转至 Github 反馈 (打不开可使用加速器等工具)</p>
+            <XU-Button onclick="window.open('https://github.com/XTY64XTY12345/Xdows-Security-4/issues') ">反馈</XU-Button>
+        </div>
+        </Accordion>
+    </div>
+  </div>
+  <div class="tab-pane">
+    <input type="radio" name="tab" id="tab07"/>
+    <label class="tab-item" for="tab07">关于软件</label>
+    <div class="tab-content">
+      <h4>关于软件</h4>
+      <h5 style='margin-top:-16px!important'>开发者：Xdows Software
+      <br>
+      版本号：4.00 Beta<br></h5>
+      <br>
+      <br>
     </div>
   </div>
 </div>

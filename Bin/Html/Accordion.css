@@ -1,0 +1,67 @@
+@import "color.css";
+
+Accordion {
+    overflow: hidden;
+    position: relative;
+}
+
+.accordion-input {
+    display: none;
+}
+
+.accordion-label {
+    display: block;
+    background-color: var(--Theme-Background-color);
+    border-radius: var(--SmallBorderRadius);
+    border: 1px solid var(--Theme-Border-color);
+    padding: 12px 32px 12px 16px;
+    cursor: pointer;
+    position: relative;
+    font-size: 14px;
+}
+
+.accordion-label:hover {
+    background-color: var(--Theme-Background-color);
+}
+
+.accordion-label:focus {
+    outline: 2px solid var(--Theme-Background-color);
+    outline-offset: 2px;
+}
+
+.accordion-label::after {
+    content: "\E70D";
+    font-family: 'Segoe Fluent Icons';
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-input:checked + .accordion-label::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0 16px;
+    transition: 
+        max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        padding 0.3s ease;
+    font-size: 14px;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    background-color: var(--Theme-Background-color);
+    border-radius: var(--SmallBorderRadius);
+    border: 1px solid var(--Theme-Border-color);
+}
+
+.accordion-input:checked ~ .accordion-content {
+    max-height: 500px;
+    padding: 0 16px 16px;
+    opacity: 1;
+}
