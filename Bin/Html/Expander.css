@@ -1,15 +1,15 @@
 @import "color.css";
 
-Accordion {
+Expander {
     overflow: hidden;
     position: relative;
 }
 
-.accordion-input {
+.Expander-input {
     display: none;
 }
 
-.accordion-label {
+.Expander-label {
     display: block;
     background-color: var(--Theme-Background-color);
     border-radius: var(--SmallBorderRadius);
@@ -20,16 +20,16 @@ Accordion {
     font-size: 14px;
 }
 
-.accordion-label:hover {
+.Expander-label:hover {
     background-color: var(--Theme-Background-color);
 }
 
-.accordion-label:focus {
+.Expander-label:focus {
     outline: 2px solid var(--Theme-Background-color);
     outline-offset: 2px;
 }
 
-.accordion-label::after {
+.Expander-label::after {
     content: "\E70D";
     font-family: 'Segoe Fluent Icons';
     position: absolute;
@@ -40,11 +40,11 @@ Accordion {
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.accordion-input:checked + .accordion-label::after {
+.Expander-input:checked + .Expander-label::after {
     transform: translateY(-50%) rotate(180deg);
 }
 
-.accordion-content {
+.Expander-content {
     max-height: 0;
     opacity: 0;
     overflow: hidden;
@@ -60,7 +60,7 @@ Accordion {
     border: 1px solid var(--Theme-Border-color);
 }
 
-.accordion-input:checked ~ .accordion-content {
+.Expander-input:checked ~ .Expander-content {
     max-height: 500px;
     padding: 0 16px 16px;
     opacity: 1;

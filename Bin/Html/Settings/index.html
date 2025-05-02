@@ -38,7 +38,7 @@
   <link rel="stylesheet" type="text/css" href="./../Switch.css">
   <link rel="stylesheet" type="text/css" href="./../Color.css">
   <link rel="stylesheet" type="text/css" href="./../Combo.css">
-  <link rel="stylesheet" type="text/css" href="./../Accordion.css">
+  <link rel="stylesheet" type="text/css" href="./../Expander.css">
   <title>Settings</title>
 </head>
 <body>
@@ -171,29 +171,29 @@
     <label class="tab-item" for="tab06">常见问题</label>
     <div class="tab-content">
       <h4>常见问题</h4>
-      <Accordion>
-        <input type="checkbox" id="item1" class="accordion-input">
-        <label for="item1" class="accordion-label">为什么有些功能无法使用或功能缺失</label>
-        <div class="accordion-content">
+      <Expander>
+        <input type="checkbox" id="item1" class="Expander-input">
+        <label for="item1" class="Expander-label">为什么有些功能无法使用或功能缺失</label>
+        <div class="Expander-content">
             <p>目前该软件还在开发，有些功能还在制作。</p>
         </div>
-        </Accordion>
-        <Accordion>
-        <input type="checkbox" id="item2" class="accordion-input">
-        <label for="item2" class="accordion-label">主题样式定制 该怎么修改</label>
-        <div class="accordion-content">
+        </Expander>
+        <Expander>
+        <input type="checkbox" id="item2" class="Expander-input">
+        <label for="item2" class="Expander-label">主题样式定制 该怎么修改</label>
+        <div class="Expander-content">
             <p>根据注释修改相关值，实在看不懂的可以查一下 CSS 的格式</p>
         </div>
-        </Accordion>
+        </Expander>
         
-        <Accordion>
-        <input type="checkbox" id="item3" class="accordion-input">
-        <label for="item3" class="accordion-label">如何反馈 Bug / 请求功能</label>
-        <div class="accordion-content">
+        <Expander>
+        <input type="checkbox" id="item3" class="Expander-input">
+        <label for="item3" class="Expander-label">如何反馈 Bug / 请求功能</label>
+        <div class="Expander-content">
             <p>在下面的按钮中点击 “反馈” 按钮跳转至 Github 反馈 (打不开可使用加速器等工具)</p>
             <XU-Button onclick="window.open('https://github.com/XTY64XTY12345/Xdows-Security-4/issues') ">反馈</XU-Button>
         </div>
-        </Accordion>
+        </Expander>
     </div>
   </div>
   <div class="tab-pane">
