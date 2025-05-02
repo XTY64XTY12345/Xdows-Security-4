@@ -31,17 +31,36 @@ Expander {
 
 .Expander-label::after {
     content: "\E70D";
+    display: flex;
     font-family: 'Segoe Fluent Icons';
     position: absolute;
+    height: 32px;
+    width: 32px;
     right: 16px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 16px;
+    font-size: 10px;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: var(--SmallBorderRadius);
+    align-items: center;
+    justify-content: center;
+}
+
+.Expander-label:hover::after {
+    background-color: rgb(from var(--Theme-Background-color) calc(r * 0.95) calc(g * 0.95) calc(b * 0.95) / alpha)!important;
+}
+
+html[data-theme='dark'] .Expander-label:hover::after {
+    background-color: rgb(from var(--Theme-Background-color) calc(r * 1.2) calc(g * 1.2) calc(b * 1.2) / alpha)!important;
+}
+
+.Expander-label:active::after{
+    opacity: 0.8;
 }
 
 .Expander-input:checked + .Expander-label::after {
-    transform: translateY(-50%) rotate(180deg);
+    /*transform: translateY(-50%) rotate(180deg);*/
+    content: "\E70E";
 }
 
 .Expander-content {
@@ -61,7 +80,7 @@ Expander {
 }
 
 .Expander-input:checked ~ .Expander-content {
-    max-height: 500px;
+    max-height: 100px;
     padding: 0 16px 16px;
     opacity: 1;
 }
