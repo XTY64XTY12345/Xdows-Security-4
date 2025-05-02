@@ -5,40 +5,43 @@
 
   <h3 align="center">Xdows Security 4.0</h3>
   <p align="center">
-    一个简单的易语言杀软项目
+    A simple E-language antivirus project
     <br />
-    <a href="https://xty64xty.netlify.app/zh/Xdows-Security-4/get-started.html">文档</a>
+    <a href="https://xty64xty.netlify.app/zh/Xdows-Security-4/get-started.html">Documentation</a>
     ·
-    <a href="https://github.com/XTY64XTY12345/Xdows-Security-4/issues">反馈</a>
+    <a href="https://github.com/XTY64XTY12345/Xdows-Security-4/issues">Feedback</a>
     ·
-    <a href="https://github.com/XTY64XTY12345/Xdows-Security">3.0</a>
+    <a href="https://github.com/XTY64XTY12345/Xdows-Security">Version 3.0</a>
+    <br />
+    English
+    ·
+    <a href="README_zh.md">简体中文</a>
   </p>
 
 </p>
 
+### Usage
 
-### 使用方式
+#### Development Environment
 
-#### 开发环境
+1. E-language version 5.93 or above
+2. E-language Black Moon Compiler Plugin
 
-1. 易语言 5.93 及以上版本
-2. 易语言黑月编译插件
+#### Usage/Compilation
 
-#### 使用/编译
+##### Automated Compilation
 
-##### 自动化编译
+1. Open the `Build` directory
+2. Open the `Setup.iss` and `Build.cmd` files
+3. Modify the absolute paths in these files
+4. Run `Build.cmd` as an administrator
 
-1. 打开 Build 目录
-2. 打开 Setup.iss 和 Build.cmd 文件
-3. 修改其中的绝对路径
-4. 以管理员运行 Build.cmd
+##### Manual Compilation Requirements
 
-##### 自行编译要求
+1. Must open the program after compilation; debugging may cause some JS files to fail to load
+2. Compiler support: VC6 - VC7
+3. The scanning engine (Scan.dll) theoretically supports all compiler versions (scripts use the Black Moon Compiler Plugin)
 
-1. 必须编译后打开，调试可能会导致一些js文件不会加载
-2. 编译器支持 VC6 - VC7
-3. 扫描引擎（Scan.dll）理论支持所有编译器版本（脚本使用黑月编译插件）
+### License
 
-### 版权说明
-
-该项目签署了 MIT 授权许可，详情请参阅 [LICENSE](LICENSE)
+This project is licensed under the MIT License. For details, please refer to [LICENSE](LICENSE)
