@@ -155,6 +155,8 @@ function getBrowserType() {
 		} else if (ver == 10) { return 'IE10'
 		} else { return "IE" }
 	}
+	var isClient = ua.indexOf("Client") > -1
+	if (isClient) { return 'Client' }
 	var isEdge = ua.indexOf("Edge") > -1
 	if (isEdge) { return 'Edge' }
 	var isFirefox = ua.indexOf("Firefox") > -1
