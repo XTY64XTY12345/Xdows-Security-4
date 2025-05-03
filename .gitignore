@@ -3,5 +3,5 @@
 *.bak
 *.exe
 *.dll
-Bin/Function/CacheData/
-Bin/Function/CEFLib/
+Bin/Function/UserData/
+Bin/Function/ACFlib/
