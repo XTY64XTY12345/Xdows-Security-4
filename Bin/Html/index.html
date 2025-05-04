@@ -43,9 +43,10 @@ body {
 	<link rel="stylesheet" type="text/css" href="./Color.css">
 </head>
 <title>Xdows Security</title>
-<img src="./logo.ico" style="float: left;margin-left:4px" alt="" width="30" height="30">
-<h2 class="Tittle">&nbspXdows Security</h2>
-
+<div id="App_Title">
+	<img src="./logo.ico" style="float: left;margin-left:4px" alt="" width="30" height="30">
+	<h2 class="Tittle">&nbspXdows Security</h2>
+</div>
 
 <div class="icon-bar"> 
 	<a class="activeDEF" id="bar1" title="主页" onclick="GoToAPPHTML('./Home/index.html','bar1')">
@@ -238,6 +239,16 @@ window.addEventListener("storage", function(e) {
 });
 
 document.getElementById("bar1").click();
+
+// 客户端功能
+if (getBrowserType() == 'Client'){
+    document.addEventListener('DOMContentLoaded', () => {
+    const App_Title = document.getElementById('App_Title');
+    if (App_Title) {
+		App_Title.remove();
+    }
+    });
+}
 </script>
 </html>
 
