@@ -25,12 +25,12 @@ DefaultDirName={autopf}\{#MyAppName}
 UninstallDisplayIcon={app}\{#MyAppExeName}
 DisableProgramGroupPage=yes
 DisableWelcomePage=no
-LicenseFile=F:\Xdows-Security-4\LICENSE
+LicenseFile=G:\Xdows-Security-4\LICENSE
 ; 取消注释以下行以在非管理安装模式下运行 (仅为当前用户安装)。
 PrivilegesRequired=admin
-OutputDir=F:\
+OutputDir=G:\
 OutputBaseFilename=Setup
-SetupIconFile=F:\Xdows-Security-4\logo.ico
+SetupIconFile=G:\Xdows-Security-4\logo.ico
 SolidCompression=yes
 WizardStyle=modern
 
@@ -38,8 +38,8 @@ WizardStyle=modern
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "F:\Xdows-Security-4\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "F:\Xdows-Security-4\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "G:\Xdows-Security-4\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "G:\Xdows-Security-4\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; 注意：不要在任何共享系统文件上使用 "Flags: ignoreversion"
 
 [Icons]
