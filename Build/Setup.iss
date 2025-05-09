@@ -2,7 +2,7 @@
 ; 有关创建 Inno Setup 脚本文件的详细信息，请参阅帮助文档！
 
 #define MyAppName "Xdows Security"
-#define MyAppVersion "4.00-Beta6"
+#define MyAppVersion "4.00-Beta7"
 #define MyAppPublisher "Xdows Software"
 #define MyAppURL "https://xty64xty.netlify.app/"
 #define MyAppExeName "Xdows-Security.exe"
