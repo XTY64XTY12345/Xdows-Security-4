@@ -7,7 +7,7 @@
   <p align="center">
     A simple E-language antivirus project
     <br />
-    <a href="https://xty64xty.netlify.app/zh/Xdows-Security-4/get-started.html">Documentation</a>
+    <a href="https://xty64xty.netlify.app/en/Xdows-Security-4/get-started.html">Documentation</a>
     ·
     <a href="https://github.com/XTY64XTY12345/Xdows-Security-4/issues">Feedback</a>
     ·
