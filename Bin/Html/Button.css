@@ -22,10 +22,10 @@ XU-Button,XU-Button-DEF{
 	position: relative;
 }
 XU-Button:hover,XU-Button-DEF:hover{
-	opacity: 0.8;
+	opacity: 0.9;
 }
 XU-Button:active,XU-Button-DEF:active{
-	opacity: 0.7;
+	opacity: 0.8;
 }
 XU-Button:active{
 	border-bottom: 1px solid var(--Theme-Border-color);

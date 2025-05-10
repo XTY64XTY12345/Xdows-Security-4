@@ -27,7 +27,7 @@
 /* 深色主题颜色配置 */
 /* 注释同浅色的配置 */
 html[data-theme='dark'] {
-  --Theme-color: #25D9E6;
+  --Theme-color: #4CC2FF;
   --Background-color: #0E151A;
   --Text-color: #ffffff;
   --Text2-color: #000000;
