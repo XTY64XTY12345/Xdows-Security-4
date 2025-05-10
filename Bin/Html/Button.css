@@ -37,13 +37,13 @@ XU-Button[disabled],XU-Button:hover[disabled],XU-Button:active[disabled]{
 }
 XU-Button-DEF{
 	background-color:var(--Theme-color);
-	color:var(--Text2-color);
-	box-shadow: 0 0 0 0 var(--Text2-color);
-	border-top: 1px solid var(--Text2-color);
-    border-left: 1px solid var(--Text2-color);
-    border-right: 1px solid var(--Text2-color);
-	border-bottom: 1.3px solid var(--Text2-color);
+	color:var(--Background-color);
+	box-shadow: 0 0 0 0 var(--Background-color);
+	border-top: 1px solid var(--Background-color);
+    border-left: 1px solid var(--Background-color);
+    border-right: 1px solid var(--Background-color);
+	border-bottom: 1.3px solid var(--Background-color);
 }
 XU-Button-DEF:active{
-	border-bottom: 1px solid var(--Text2-color);
+	border-bottom: 1px solid var(--Background-color);
 }

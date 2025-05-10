@@ -57,7 +57,7 @@
 .switch-box .switch:checked~label::before {
     -webkit-transform: translateX(10px);
     transform: translateX(10px);
-    background-color: var(--Text2-color);
+    background-color: var(--Background-color);
 }
 .switch-box label::after {
     /* 滚动前背景色 */

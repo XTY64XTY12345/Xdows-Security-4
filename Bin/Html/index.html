@@ -25,6 +25,20 @@ body {
 	opacity: 1 !important;
 }
 
+.XU-Dialog-Content h5 {
+	font-weight: normal;
+	font-size: 15px;
+	margin: 0;
+}
+.XU-Dialog-Content-Group{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 16px;
+}
+.XU-Dialog-Content-Group XU-Textbox{
+	width: 100px;
+}
 @media (orientation: portrait) {
   .app {
     height: calc(100vh - 96px);
@@ -40,7 +54,9 @@ body {
 
 <head>
 	<link rel="stylesheet" type="text/css" href="./Bar.css">
-	<link rel="stylesheet" type="text/css" href="./Color.css">
+	<link rel="stylesheet" type="text/css" href="./Button.css">
+	<link rel="stylesheet" type="text/css" href="./Dialog.css">
+	<link rel="stylesheet" type="text/css" href="./Textbox.css">
 </head>
 <title>Xdows Security</title>
 <div id="App_Title">
@@ -65,7 +81,89 @@ body {
 	</a>
 	<a id="SideBar" class="Sidebar"></a>
 </div>
-	
+
+<div class="acrylic-overlay">
+	<!--配色管理-->
+	<div class="XU-Dialog" role="Dialog" aria-modal="true">
+		<div class="XU-Dialog-Header">
+			<h2 class="XU-Dialog-Title">配色管理</h2>
+			<button class="XU-Dialog-Close" aria-label="关闭">&#xE8BB;</button>
+		</div>
+		<div class="XU-Dialog-Content">
+			<br>
+			<div class="XU-Dialog-Content-Group">
+				<h5>主题颜色</h5>
+				<XU-Textbox width="100px">
+					<input type="text" value="#ffffff"></input>
+					<span></span>
+				</XU-Textbox>
+			</div>
+			<div class="XU-Dialog-Content-Group">
+				<h5>背景颜色</h5>
+				<XU-Textbox width="100px">
+					<input type="text" value="#ffffff"></input>
+					<span></span>
+				</XU-Textbox>
+			</div>
+			<div class="XU-Dialog-Content-Group">
+				<h5>文本颜色</h5>
+				<XU-Textbox width="100px">
+					<input type="text" value="#ffffff"></input>
+					<span></span>
+				</XU-Textbox>
+			</div>
+			<div class="XU-Dialog-Content-Group">
+				<h5>组件边框色</h5>
+				<XU-Textbox width="100px">
+					<input type="text" value="#ffffff"></input>
+					<span></span>
+				</XU-Textbox>
+			</div>
+			<div class="XU-Dialog-Content-Group">
+				<h5>组件背景色</h5>
+				<XU-Textbox width="100px">
+					<input type="text" value="#ffffff"></input>
+					<span></span>
+				</XU-Textbox>
+			</div>
+			<div class="XU-Dialog-Content-Group">
+				<h5>组件背景色 - 2</h5>
+				<XU-Textbox width="100px">
+					<input type="text" value="#ffffff"></input>
+					<span></span>
+				</XU-Textbox>
+			</div>
+			<div class="XU-Dialog-Content-Group">
+				<h5>组件背景色 - 3</h5>
+				<XU-Textbox width="100px">
+					<input type="text" value="#ffffff"></input>
+					<span></span>
+				</XU-Textbox>
+			</div>
+			<div class="XU-Dialog-Content-Group">
+				<h5>滑块按钮前景色</h5>
+				<XU-Textbox width="100px">
+					<input type="text" value="#ffffff"></input>
+					<span></span>
+				</XU-Textbox>
+			</div>
+			<div class="XU-Dialog-Content-Group">
+				<h5>禁用时组件背景色</h5>
+				<XU-Textbox width="100px">
+					<input type="text" value="#ffffff"></input>
+					<span></span>
+				</XU-Textbox>
+			</div>
+
+			<p style="margin-bottom: -32px;color:gray"><XU-Icon>&#xE7BA;</XU-Icon> 该功能暂未实现，请点击 高级 按钮以编辑</p>
+		</div>
+		<div class="XU-Dialog-Actions">
+			<XU-Button onclick="UseFunction('OpenColorCssFiles')">高级</XU-Button>
+			<XU-Button-DEF class='XU-Dialog-Close-Botton'>保存</XU-Button-DEF>
+		</div>
+	</div>
+</div>
+
 <body>	
 <div class="app" id="APPDiv"> 
 	<iframe id="APPHTML" height="100%" width="100%"	onload="ChangeHtml()" scrolling="auto" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
@@ -77,6 +175,37 @@ const message = parent.useMessage();
 const APPHTML = document.getElementById("APPHTML");
 const loadingAnimation = document.createElement("div");
 const loadingImage = document.createElement("img");
+const overlay = document.querySelector('.acrylic-overlay');// 遮罩
+
+// 对话框
+document.addEventListener('DOMContentLoaded', () => {
+    // 元素选择
+    const closeBtns = document.querySelectorAll('.XU-Dialog-Close , .XU-Dialog-Close-Botton');
+    // 关闭对话框
+    closeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            overlay.classList.remove('active');
+        });
+    });
+
+    // 遮罩层点击关闭
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+            overlay.classList.remove('active');
+        }
+    });
+
+    // ESC 键关闭
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) {
+            overlay.classList.remove('active');
+        }
+    });
+});
+
+function ColorDialog() {
+	overlay.classList.add('active');
+}
 
 // 主题功能
 function updateTheme(isLight) {
