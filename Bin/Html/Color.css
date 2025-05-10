@@ -2,15 +2,15 @@
 
 /* 浅色主题颜色配置 */
 :root {
-  --Theme-color: #0067c0; /* 主题颜色 */
-  --Background-color: #ffffff; /* 背景颜色 */
+  --Theme-color: #0067C0; /* 主题颜色 */
+  --Background-color: #FFFFFF; /* 背景颜色 */
   --Text-color: #000000; /* 文本颜色 */
-  --Theme-Border-color: #e5e5e5; /* 组件边框色 */
-  --Theme-Background-color: #fbfbfc; /* 组件背景色 */
+  --Theme-Border-color: #E5E5E5; /* 组件边框色 */
+  --Theme-Background-color: #FBFBFC; /* 组件背景色 */
   --Theme-Background-color2:#FFFFFF; /* 组件背景色 - 2 */
   --Theme-Background-color3:#F3F3F3; /* 组件背景色 - 3 */
   --Theme-Switch-color: #575757; /* 滑块按钮前景色 */
-  --Theme-Background-color-disabled : rgb(240, 240, 240); /* 禁用时组件背景色*/
+  --Theme-Background-color-disabled: #F0F0F0; /* 禁用时组件背景色*/
 
   /* 以下内容 none 表示隐藏 ‘’ 表示显示 */
   --Display-Dark: none; /* 在深色模式显示 */
@@ -28,13 +28,13 @@
 html[data-theme='dark'] {
   --Theme-color: #4CC2FF;
   --Background-color: #0E151A;
-  --Text-color: #ffffff;
+  --Text-color: #FFFFFF;
   --Theme-Border-color: #3B3B3B;
   --Theme-Background-color: #313131;  
   --Theme-Background-color2:#2B2B2B;
   --Theme-Background-color3:#202020;
   --Theme-Switch-color: #CCCCCC;
-  --Theme-Background-color-disabled :rgb(39, 39, 39);
+  --Theme-Background-color-disabled: #272727;
   --Display-Dark: '';
   --Display-Light: none;
   color-scheme: dark;
