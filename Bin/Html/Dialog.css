@@ -21,12 +21,13 @@
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.45);
-    // backdrop-filter: blur(8px);
+    /* backdrop-filter: blur(8px); */
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0;
-    transition: opacity 250ms cubic-bezier(0.1, 0.9, 0.2, 1);
+    visibility: hidden; /* 初始状态隐藏 */
+    transition: opacity 250ms cubic-bezier(0.1, 0.9, 0.2, 1), visibility 0s linear 250ms; /* 延迟 visibility 切换 */
     pointer-events: none;
     z-index: 100; /* 确保在最顶层 */
 }
@@ -34,7 +35,9 @@
 
 .acrylic-overlay.active {
     opacity: 1;
+    visibility: visible; /* 激活时显示 */
     pointer-events: all;
+    transition: opacity 250ms cubic-bezier(0.1, 0.9, 0.2, 1), visibility 0s linear 0s; /* 立即切换 visibility */
 }
 .acrylic-overlay {
 	animation: overlay-close 200ms ease-out forwards;
@@ -63,11 +66,13 @@
     border: 1px solid var(--Theme-Border-color);
     z-index: 100;
 	transform-origin: center center;
-	animation: XU-Dialog-Close 300ms cubic-bezier(0.1, 0.9, 0.2, 1);
+	animation: none; /* 禁用初始动画 */
+	visibility: hidden; /* 初始状态隐藏 */
 }
 
 .acrylic-overlay.active .XU-Dialog {
 	animation: XU-Dialog-Open 300ms cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+	visibility: visible; /* 激活时显示 */
 }
 
 @keyframes XU-Dialog-Open {
