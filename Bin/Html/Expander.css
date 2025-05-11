@@ -65,22 +65,23 @@ html[data-theme='dark'] .Expander-label:hover::after {
 
 .Expander-content {
     max-height: 0;
-    opacity: 0;
     overflow: hidden;
     padding: 0 16px;
     transition: 
         max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-        padding 0.3s ease;
+        padding 0.3s ease,
+        border-width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-size: 14px;
     margin-top: 4px;
     margin-bottom: 8px;
     background-color: var(--Theme-Background-color);
     border-radius: var(--SmallBorderRadius);
     border: 1px solid var(--Theme-Border-color);
+    border-width: 0; /* 默认无边框 */
 }
 
 .Expander-input:checked ~ .Expander-content {
     max-height: 100px;
     padding: 0 16px 16px;
-    opacity: 1;
+    border-width: 1px; /* 展开时显示边框 */
 }
