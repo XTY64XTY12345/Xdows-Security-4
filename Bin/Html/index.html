@@ -226,6 +226,17 @@ function updateTheme(isLight) {
 	if (loadingImage) {
 		loadingImage.src = isLight ? "./loading-light.gif" : "./loading-dark.gif";
 	}
+	// 客户端功能
+	if (getBrowserType() == 'Client'){
+		Client.postMessage(
+			"ChangeTheme",
+			getComputedStyle(document.documentElement).getPropertyValue("--Background-color"),
+			getComputedStyle(document.documentElement).getPropertyValue("--Text-color"),
+			getComputedStyle(document.documentElement).getPropertyValue("--Theme-color"),
+			getComputedStyle(document.documentElement).getPropertyValue("--Theme-Background-color"),
+			theme
+		);
+  	};
 }
 function FollowSystem(){
 	if (themeMedia.matches){
