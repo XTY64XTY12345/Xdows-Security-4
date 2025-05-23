@@ -49,6 +49,27 @@ body {
 	display: none;
   }
 }
+@keyframes rotate360 {
+	from { transform: rotate(-24deg);}
+	to { transform: rotate(360deg);}
+}
+.bar4-rotate {
+	animation: rotate360 0.8s linear;
+}
+@-moz-document url-prefix() {
+	.icon-bar a span#bar4-text {
+		transform-origin: center 40%!important;
+	}
+}
+.icon-bar a span#bar4-text {
+	transform-origin: center;
+	display: inline-block;
+}
+.icon-bar a:active span#bar4-text {
+	transform: rotate(-24deg);
+	transition: transform 0.2s;
+}
+
 </style>
 <script src="./../Message.js"></script>
 
@@ -69,16 +90,14 @@ body {
 	<a class="activeDEF" id="bar1" title="主页" onclick="GoToAPPHTML('./Home/index.html','bar1')">
 		&#xE80F;
 	</a> 
-	
 	<a id="bar2" title="杀毒" onclick="GoToAPPHTML('./Security/index.html','bar2')">
-	&#xEA18;
-</a> 
- 
+		&#xEA18;
+	</a> 
 	<a id="bar3" style="margin-left: -1px;" title="Xdows Tools" onclick="GoToAPPHTML('./Xdows-Tools/index.html','bar3')">
-	&#xEA86;
+		&#xEA86;
 	</a> 
 	<a id="bar4" title="设置" onclick="GoToAPPHTML('./Settings/index.html','bar4')">
-	&#xE713;
+		<span id="bar4-text">&#xE713;</span>
 	</a>
 	<a id="SideBar" class="Sidebar"></a>
 </div>
@@ -354,7 +373,14 @@ function GoToAPPHTML(a, b) {
 		document.body.appendChild(loadingAnimation);
 		document.body.appendChild(loadingImage);
 	}
-
+	if (b == "bar4") {
+		const bar4 = document.getElementById(b + '-text');
+		bar4.classList.add("bar4-rotate");
+		bar4.addEventListener("animationend", function handler() {
+			bar4.classList.remove("bar4-rotate");
+			bar4.removeEventListener("animationend", handler);
+		});
+	}
 	const offsets = {
 		Firefox: { bar1: "-182px", bar2: "-135px", bar3: "-86px", bar4: "-38px" },
 		default: { bar1: "-166px", bar2: "-122px", bar3: "-77px", bar4: "-34px" }
@@ -363,7 +389,7 @@ function GoToAPPHTML(a, b) {
 	const offset = (offsets[browserType] || offsets.default)[b] || "0px";
 
 	x.className = ""; // 更新之前清除当前激活状态
-	document.getElementById(b).className = "activeDEF";
+	document.getElementById(b).classList.add("activeDEF");
 	document.getElementById("SideBar").style.top = offset;
 	appDiv.classList.remove("app-loaded");
 	APPHTML.src = a;
