@@ -42,6 +42,7 @@ html[data-theme='dark'] .activeDEF{
 }
 .Sidebar {
 	clear: both;
+	opacity: 1!important;
 	background-color: var(--Theme-color)!important;
 	transition:all 20ms ease-in-out;
 	width: 2px;
