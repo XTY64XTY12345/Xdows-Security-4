@@ -45,7 +45,7 @@ html[data-theme='dark'] .activeDEF{
 	background-color: var(--Theme-color)!important;
 	transition:all 20ms ease-in-out;
 	width: 2px;
-	z-index: 20;
+	z-index: 100;
 	position: absolute;
 }
 
