@@ -56,20 +56,19 @@ body {
 .bar4-rotate {
 	animation: rotate360 0.8s linear;
 }
-@-moz-document url-prefix() {
-	.icon-bar a span#bar4-text {
-		transform-origin: center 40%!important;
-	}
-}
 .icon-bar a span#bar4-text {
 	transform-origin: center;
 	display: inline-block;
+}
+@-moz-document url-prefix() {
+	.icon-bar a span#bar4-text {
+		transform-origin: center 40%;
+	}
 }
 .icon-bar a:active span#bar4-text {
 	transform: rotate(-24deg);
 	transition: transform 0.2s;
 }
-
 </style>
 <script src="./../Message.js"></script>
 
