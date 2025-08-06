@@ -11,7 +11,7 @@
     ·
     <a href="https://github.com/XTY64XTY12345/Xdows-Security-4/issues">Feedback</a>
     ·
-    <a href="https://github.com/XTY64XTY12345/Xdows-Security">Version 3.0</a>
+    <a href="https://github.com/XTY64XTY12345/Xdows-Security-3">Version 3.0</a>
     <br />
     English
     ·
